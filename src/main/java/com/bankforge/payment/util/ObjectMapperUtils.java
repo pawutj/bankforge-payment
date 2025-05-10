@@ -18,7 +18,7 @@ public class ObjectMapperUtils {
             T object = (T) this.objectMapper.reader().readValue(res, type);
             return Mono.just(object);
         } catch (IOException e) {
-            throw new RuntimeException(e);
+            return Mono.error(new RuntimeException());
         }
     }
 }
